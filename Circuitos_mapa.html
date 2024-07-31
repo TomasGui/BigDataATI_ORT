@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "bearing": 0,
+    "latitude": 0,
+    "longitude": 0,
+    "maxZoom": 15,
+    "minZoom": 0,
+    "pitch": 0,
+    "zoom": 0.5
+  },
+  "layers": [
+    {
+      "@@type": "ScatterplotLayer",
+      "autoHighlight": true,
+      "data": [
+        {
+          "Country Code": "GBR",
+          "Grand Prix": "Great Britain",
+          "Latitude": 52.0786,
+          "Longitude": -1.0169
+        },
+        {
+          "Country Code": "MON",
+          "Grand Prix": "Monaco",
+          "Latitude": 43.7347,
+          "Longitude": 7.4206
+        },
+        {
+          "Country Code": "SUI",
+          "Grand Prix": "Switzerland",
+          "Latitude": 47.3769,
+          "Longitude": 8.5417
+        },
+        {
+          "Country Code": "BEL",
+          "Grand Prix": "Belgium",
+          "Latitude": 50.4372,
+          "Longitude": 5.9714
+        },
+        {
+          "Country Code": "FRA",
+          "Grand Prix": "France",
+          "Latitude": 43.2509,
+          "Longitude": 5.7901
+        },
+        {
+          "Country Code": "ITA",
+          "Grand Prix": "Italy",
+          "Latitude": 44.3406,
+          "Longitude": 11.7161
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Indianapolis 500",
+          "Latitude": 39.795,
+          "Longitude": -86.235
+        },
+        {
+          "Country Code": "DEU",
+          "Grand Prix": "Germany",
+          "Latitude": 49.3276,
+          "Longitude": 8.5625
+        },
+        {
+          "Country Code": "ESP",
+          "Grand Prix": "Spain",
+          "Latitude": 41.57,
+          "Longitude": 2.2615
+        },
+        {
+          "Country Code": "NED",
+          "Grand Prix": "Netherlands",
+          "Latitude": 52.3888,
+          "Longitude": 4.5409
+        },
+        {
+          "Country Code": "ARG",
+          "Grand Prix": "Argentina",
+          "Latitude": -34.6466,
+          "Longitude": -58.3876
+        },
+        {
+          "Country Code": "ITA",
+          "Grand Prix": "Pescara",
+          "Latitude": 42.4643,
+          "Longitude": 14.2142
+        },
+        {
+          "Country Code": "POR",
+          "Grand Prix": "Portugal",
+          "Latitude": 37.227,
+          "Longitude": -8.6281
+        },
+        {
+          "Country Code": "MAR",
+          "Grand Prix": "Morocco",
+          "Latitude": 33.5899,
+          "Longitude": -7.6039
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "United States",
+          "Latitude": 30.1328,
+          "Longitude": -97.6411
+        },
+        {
+          "Country Code": "ZAF",
+          "Grand Prix": "South Africa",
+          "Latitude": -26.2474,
+          "Longitude": 27.8477
+        },
+        {
+          "Country Code": "MEX",
+          "Grand Prix": "Mexico",
+          "Latitude": 19.4042,
+          "Longitude": -99.0907
+        },
+        {
+          "Country Code": "AUT",
+          "Grand Prix": "Austria",
+          "Latitude": 47.2197,
+          "Longitude": 14.7646
+        },
+        {
+          "Country Code": "CAN",
+          "Grand Prix": "Canada",
+          "Latitude": 45.5049,
+          "Longitude": -73.5262
+        },
+        {
+          "Country Code": "BRA",
+          "Grand Prix": "Brazil",
+          "Latitude": -23.7036,
+          "Longitude": -46.6997
+        },
+        {
+          "Country Code": "SWE",
+          "Grand Prix": "Sweden",
+          "Latitude": 59.4088,
+          "Longitude": 17.7569
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "USA West",
+          "Latitude": 36.1699,
+          "Longitude": -115.1398
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "USA East",
+          "Latitude": 40.713,
+          "Longitude": -74.0072
+        },
+        {
+          "Country Code": "JPN",
+          "Grand Prix": "Japan",
+          "Latitude": 34.8431,
+          "Longitude": 136.5416
+        },
+        {
+          "Country Code": "SMR",
+          "Grand Prix": "San Marino",
+          "Latitude": 43.9685,
+          "Longitude": 12.4813
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Caesar's Palace",
+          "Latitude": 36.1699,
+          "Longitude": -115.1398
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Detroit",
+          "Latitude": 42.3407,
+          "Longitude": -83.0458
+        },
+        {
+          "Country Code": "DEU",
+          "Grand Prix": "Europe",
+          "Latitude": 50.4336,
+          "Longitude": 6.9476
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Dallas",
+          "Latitude": 32.7749,
+          "Longitude": -96.8089
+        },
+        {
+          "Country Code": "AUS",
+          "Grand Prix": "Australia",
+          "Latitude": -37.8497,
+          "Longitude": 144.968
+        },
+        {
+          "Country Code": "HUN",
+          "Grand Prix": "Hungary",
+          "Latitude": 47.5789,
+          "Longitude": 19.2486
+        },
+        {
+          "Country Code": "JPN",
+          "Grand Prix": "Pacific",
+          "Latitude": 34.8431,
+          "Longitude": 136.5416
+        },
+        {
+          "Country Code": "LUX",
+          "Grand Prix": "Luxembourg",
+          "Latitude": 49.629,
+          "Longitude": 6.2185
+        },
+        {
+          "Country Code": "MAS",
+          "Grand Prix": "Malaysia",
+          "Latitude": 2.7606,
+          "Longitude": 101.7384
+        },
+        {
+          "Country Code": "BHR",
+          "Grand Prix": "Bahrain",
+          "Latitude": 26.0325,
+          "Longitude": 50.5106
+        },
+        {
+          "Country Code": "CHN",
+          "Grand Prix": "China",
+          "Latitude": 31.3389,
+          "Longitude": 121.22
+        },
+        {
+          "Country Code": "TUR",
+          "Grand Prix": "Turkey",
+          "Latitude": 40.9517,
+          "Longitude": 29.405
+        },
+        {
+          "Country Code": "SGP",
+          "Grand Prix": "Singapore",
+          "Latitude": 1.2916,
+          "Longitude": 103.8644
+        },
+        {
+          "Country Code": "ARE",
+          "Grand Prix": "Abu Dhabi",
+          "Latitude": 24.4672,
+          "Longitude": 54.6031
+        },
+        {
+          "Country Code": "KOR",
+          "Grand Prix": "South Korea",
+          "Latitude": 37.8043,
+          "Longitude": 126.2485
+        },
+        {
+          "Country Code": "IND",
+          "Grand Prix": "India",
+          "Latitude": 28.3486,
+          "Longitude": 77.535
+        },
+        {
+          "Country Code": "RUS",
+          "Grand Prix": "Russia",
+          "Latitude": 43.4053,
+          "Longitude": 39.9553
+        },
+        {
+          "Country Code": "AZE",
+          "Grand Prix": "Azerbaijan",
+          "Latitude": 40.3725,
+          "Longitude": 49.8532
+        },
+        {
+          "Country Code": "AUT",
+          "Grand Prix": "Styria",
+          "Latitude": 47.2197,
+          "Longitude": 14.7646
+        },
+        {
+          "Country Code": "GBR",
+          "Grand Prix": "70th Anniversary",
+          "Latitude": 52.0786,
+          "Longitude": -1.0169
+        },
+        {
+          "Country Code": "ITA",
+          "Grand Prix": "Tuscany",
+          "Latitude": 43.3667,
+          "Longitude": 11.3069
+        },
+        {
+          "Country Code": "DEU",
+          "Grand Prix": "Eifel",
+          "Latitude": 50.3354,
+          "Longitude": 6.9476
+        },
+        {
+          "Country Code": "ITA",
+          "Grand Prix": "Emilia Romagna",
+          "Latitude": 44.3395,
+          "Longitude": 11.7161
+        },
+        {
+          "Country Code": "QAT",
+          "Grand Prix": "Qatar",
+          "Latitude": 25.49,
+          "Longitude": 51.4536
+        },
+        {
+          "Country Code": "SAU",
+          "Grand Prix": "Saudi Arabia",
+          "Latitude": 21.4858,
+          "Longitude": 39.1925
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Miami",
+          "Latitude": 25.7751,
+          "Longitude": -80.2105
+        },
+        {
+          "Country Code": "USA",
+          "Grand Prix": "Las Vegas",
+          "Latitude": 36.1699,
+          "Longitude": -115.1398
+        }
+      ],
+      "getFillColor": [
+        180,
+        0,
+        200,
+        140
+      ],
+      "getPosition": "@@=[Longitude, Latitude]",
+      "getRadius": 80000,
+      "id": "7b266020-2f81-4bd2-8129-f84fd0ef74b1",
+      "pickable": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
